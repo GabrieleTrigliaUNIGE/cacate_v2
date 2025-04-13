@@ -14,7 +14,7 @@
     </header>
     <br>
     <?php
-    $conn = mysqli_connect("localhost", "root", "", "cacate");
+    $conn = mysqli_connect("localhost", "gtriglia", "", "my_gtriglia");
     if (!$conn) {
         exit("Errore: impossibile stabilire una connessione " . mysqli_connect_error());
     }
@@ -32,7 +32,8 @@
 
     $posizione_classifica = 0;
     ?>
-    <table border="1">
+    <div class="table-container"> 
+    <table border="1" class="mod-table">
         <thead>
             <tr>
                 <?php foreach ($persons as $person): ?>
@@ -64,6 +65,7 @@
             </tr>
         </tbody>
     </table>
+    </div>
 
     <!-- Sezione Classifica -->
     <h3>Classifica</h3>

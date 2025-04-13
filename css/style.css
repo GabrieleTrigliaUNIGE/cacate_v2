@@ -12,6 +12,7 @@ body {
     color: #333;
     padding: 20px;
     text-align: center;
+    max-width: 100vw;
 }
 
 /* Stile dell'header */
@@ -31,7 +32,7 @@ table {
     margin: 0 auto 20px auto;
     border-collapse: collapse;
     background-color: #fff;
-    width: 80%;
+    width: 100%;
     max-width: 800px;
 }
 
@@ -39,7 +40,7 @@ table {
 table th,
 table td {
     border: 1px solid #ccc;
-    padding: 10px 15px;
+    padding: 5px 10px;
     text-align: center;
     font-size: 1rem;
 }
@@ -103,10 +104,10 @@ form {
 }
 
 /* Responsive design: adattamento per schermi piccoli */
-@media (max-width: 600px) {
-    table,
-    .ranking-table {
-        width: 100%;
+@media screen and(max-width: 600px) {
+    table {
+        width: 50%;
+        font-size: 14px;
     }
     
     button {
@@ -128,4 +129,21 @@ form {
 .ranking-table tbody tr:nth-child(3) td:nth-child(1){
     background-color: #CD7F32;  /* Bronzo */
     color: #000;
+}
+
+/* Emoji medaglia per le prime tre posizioni - solo nella prima cella */
+.ranking-table tbody tr:nth-child(1) td:first-child::before {
+    content: "🥇 ";
+}
+.ranking-table tbody tr:nth-child(2) td:first-child::before {
+    content: "🥈 ";
+}
+.ranking-table tbody tr:nth-child(3) td:first-child::before {
+    content: "🥉 ";
+}
+
+.table-container{
+width: 100%;
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
 }
