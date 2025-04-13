@@ -1,30 +1,131 @@
+/* Reset dei margini e padding per tutti gli elementi */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stile generale del body */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
     padding: 20px;
-    background-color: #f0f0f0;
+    text-align: center;
 }
 
+/* Stile dell'header */
+header {
+    margin-bottom: 20px;
+}
+
+header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Stile generale delle tabelle */
 table {
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     border-collapse: collapse;
-    background-color: white;
+    background-color: #fff;
+    width: 80%;
+    max-width: 800px;
 }
 
-th, td {
-    padding: 10px 20px;
+/* Stile delle celle della tabella */
+table th,
+table td {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 1rem;
 }
 
-.red {
-    background-color: crimson;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+/* Stile specifico per l'intestazione della tabella principale */
+table thead th {
+    background-color: #007BFF;
+    color: #fff;
 }
 
+/* Stile specifico per la tabella classifica */
+.ranking-table {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.ranking-table th,
+.ranking-table td {
+    border: 1px solid #333;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.ranking-table thead th {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Stile per i bottoni */
 button {
-    padding: 5px 10px;
-    margin: 2px;
+    padding: 8px 12px;
+    border: none;
+    font-size: 1rem;
     cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 3px;
+    margin: 2px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Stile per i bottoni di rimozione */
+button.red {
+    background-color: #dc3545;
+}
+
+button.red:hover {
+    background-color: #c82333;
+}
+
+/* I form vengono visualizzati in linea */
+form {
+    display: inline;
+}
+
+/* Responsive design: adattamento per schermi piccoli */
+@media (max-width: 600px) {
+    table,
+    .ranking-table {
+        width: 100%;
+    }
+    
+    button {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+.ranking-table tbody tr:nth-child(1) td:nth-child(1){
+    background-color: #FFD700;  /* Oro */
+    color: #000;
+}
+
+.ranking-table tbody tr:nth-child(2) td:nth-child(1){
+    background-color: #C0C0C0;  /* Argento */
+    color: #000;
+}
+
+.ranking-table tbody tr:nth-child(3) td:nth-child(1){
+    background-color: #CD7F32;  /* Bronzo */
+    color: #000;
 }

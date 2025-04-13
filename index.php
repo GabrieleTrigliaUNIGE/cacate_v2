@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cacate Counter</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <header>
         <h2>SUPER CACATE COUNTER</h2>
@@ -27,12 +29,14 @@
     while ($row = mysqli_fetch_assoc($result)) {
         $persons[] = $row;
     }
+
+    $posizione_classifica = 0;
     ?>
     <table border="1">
         <thead>
             <tr>
                 <?php foreach ($persons as $person): ?>
-                    <th>Persona <?= $person['PersonID'] ?></th>
+                    <th><?= $person['nome'] ?></th>
                 <?php endforeach; ?>
             </tr>
         </thead>
@@ -60,5 +64,42 @@
             </tr>
         </tbody>
     </table>
+
+    <!-- Sezione Classifica -->
+    <h3>Classifica</h3>
+    <?php
+    // Query per ottenere la classifica ordinata per 'numero' in ordine discendente
+    $query_ranking = "SELECT * FROM persons ORDER BY numero DESC";
+    $result_ranking = mysqli_query($conn, $query_ranking);
+    if (!$result_ranking) {
+        exit("Errore: impossibile eseguire la query della classifica " . mysqli_error($conn));
+    }
+    ?>
+    <table class="ranking-table">
+        <thead>
+            <tr>
+                <th>Posizione</th>
+                <th>Player</th>
+                <th>Cacate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $posizione = 1;
+            while ($row = mysqli_fetch_assoc($result_ranking)):
+            ?>
+                <tr>
+                    <td><?= $posizione ?></td>
+                    <td><?= $row['nome'] ?></td>
+                    <td><?= $row['numero'] ?></td>
+                </tr>
+            <?php
+                $posizione++;
+            endwhile;
+            ?>
+        </tbody>
+    </table>
+
 </body>
+
 </html>
