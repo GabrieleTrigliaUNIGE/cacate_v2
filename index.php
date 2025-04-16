@@ -14,7 +14,7 @@
     </header>
     <br>
     <?php
-    $conn = mysqli_connect("localhost", "gtriglia", "", "my_gtriglia");
+    $conn = mysqli_connect("localhost", "root", "", "cacate_v2");
     if (!$conn) {
         exit("Errore: impossibile stabilire una connessione " . mysqli_connect_error());
     }
@@ -32,39 +32,39 @@
 
     $posizione_classifica = 0;
     ?>
-    <div class="table-container"> 
-    <table border="1" class="mod-table">
-        <thead>
-            <tr>
-                <?php foreach ($persons as $person): ?>
-                    <th><?= $person['nome'] ?></th>
-                <?php endforeach; ?>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <?php foreach ($persons as $person): ?>
-                    <td style="text-align: center;"><?= $person['numero'] ?></td>
-                <?php endforeach; ?>
-            </tr>
-            <tr>
-                <?php foreach ($persons as $person): ?>
-                    <td style="text-align: center;">
-                        <form action="./php/add.php" method="post" style="display:inline;">
-                            <input type="hidden" name="PersonID" value="<?= $person['PersonID'] ?>">
-                            <input type="hidden" name="azione" value="add">
-                            <button type="submit">Add</button>
-                        </form>
-                        <form action="./php/add.php" method="post" style="display:inline;">
-                            <input type="hidden" name="PersonID" value="<?= $person['PersonID'] ?>">
-                            <input type="hidden" name="azione" value="remove">
-                            <button type="submit" class="red">Remove</button>
-                        </form>
-                    </td>
-                <?php endforeach; ?>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-container">
+        <table border="1" class="mod-table">
+            <thead>
+                <tr>
+                    <?php foreach ($persons as $person): ?>
+                        <th><?= $person['nome'] ?></th>
+                    <?php endforeach; ?>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <?php foreach ($persons as $person): ?>
+                        <td style="text-align: center;"><?= $person['numero'] ?></td>
+                    <?php endforeach; ?>
+                </tr>
+                <tr>
+                    <?php foreach ($persons as $person): ?>
+                        <td style="text-align: center;">
+                            <form action="./php/add.php" method="post" style="display:inline;">
+                                <input type="hidden" name="PersonID" value="<?= $person['PersonID'] ?>">
+                                <input type="hidden" name="azione" value="add">
+                                <button type="submit">Add</button>
+                            </form>
+                            <form action="./php/add.php" method="post" style="display:inline;">
+                                <input type="hidden" name="PersonID" value="<?= $person['PersonID'] ?>">
+                                <input type="hidden" name="azione" value="remove">
+                                <button type="submit" class="red">Remove</button>
+                            </form>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Sezione Classifica -->

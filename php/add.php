@@ -2,7 +2,7 @@
 $personID = isset($_POST['PersonID']) ? (int)$_POST['PersonID'] : 0;
 $azione = isset($_POST['azione']) ? $_POST['azione'] : '';
 
-$conn = mysqli_connect("localhost", "root", "", "cacate");
+$conn = mysqli_connect("localhost", "root", "", "cacate_v2");
 if (!$conn) {
     exit("Errore: impossibile connettersi al database. " . mysqli_connect_error());
 }
