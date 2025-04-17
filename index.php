@@ -102,6 +102,10 @@
         </tbody>
     </table>
 
+    <div id="linklog">
+        <a href="./php/print_log.php">show logs</a>
+    </div>
+
 </body>
 
 </html>
